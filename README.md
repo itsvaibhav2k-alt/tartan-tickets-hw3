@@ -50,6 +50,7 @@ The supplied TEST_SPEC.md references REQ-1.1–REQ-8.5, whereas requirements.md 
 | SEC-20 | Partly | React renders seed event text as text; no officer-entry workflow or explicit regression test yet. |
 | SEC-21 | Not at all | No sensitive-action audit logs. |
 | SEC-22 | Not at all | No durable append-only admin-only audit store. |
+| SEC-23 | Fully | The server rejects trimmed names above 80 Unicode code points with HTTP 400 before insertion; direct-request tests cover 81, the 80-character boundary, Unicode, and unchanged queue state. Verified identity, shared storage, and rate limiting remain unmet under other audit rows. |
 
 Tests are written before implementation. Original command output is retained separately as homework evidence. Do not use this prototype for real ticket sales.
 
@@ -60,3 +61,5 @@ Open One More Scene and choose Join waitlist. Add Alex Demo and then Blair Demo.
 The queue is an isolated browser demo keyed by an opaque HttpOnly cookie. This is not identity verification: anyone using that browser can act for its demo entries. Multiple Vercel instances can lose or diverge on state. All tests of queue ordering and inventory apply to one server instance.
 
 Part B validation: 15 tests passed, including 8 new story tests and 3 request-handler tests, and the production build passed. See docs/HW3_TEST_PLAN.md for acceptance mapping. Stories 2, 3, 5 and 6 remain out of scope.
+
+Part C validation: 18 tests pass. SEC-23 failed before the server fix and passed afterward. The exact 80-character boundary passed in both versions. Production build passed. Browser/live deployment checks remain separate from these automated results.

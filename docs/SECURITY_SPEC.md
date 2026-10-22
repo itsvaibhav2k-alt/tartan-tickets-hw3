@@ -41,3 +41,7 @@ All requirements use EARS syntax. Assumption IDs (A1–A12) refer to the list in
 
 - **SEC-21** When a role change, refund, event cancellation, Stripe account change, or attendee export occurs, the system shall write an audit log entry recording who did it, what changed, and when.
 - **SEC-22** The system shall keep audit logs append-only, readable only by platform admins, for one year.
+
+## HW3 additional input-validation requirement
+
+- **SEC-23** When a waitlist join request contains a demo name longer than 80 Unicode code points after trimming surrounding whitespace, the server shall reject it with HTTP 400 and shall not create a waitlist entry, even when the browser's length restriction is bypassed.
