@@ -92,3 +92,17 @@ As an officer, I want to scan tickets at the door.
 - All tests pass, including the security tests.
 - A person has reviewed the code against this spec.
 - The docs and the spec match the shipped behavior.
+
+## Scope for HW3
+
+- Build Story 4: Waitlist. Story 1 is the initial baseline; Story 4 is the new homework feature.
+- No real payments. Where the spec says to charge a card, use a "Simulated payment" button and list real payments as a non-goal in the README. This story does not add checkout.
+- No sign-in provider. Use a name typed into a text box and list real authentication as a non-goal.
+- No database. Keep data in memory on the server. Data resets on every deploy and may reset or diverge across serverless instances.
+- Demo clarification: notification means a visible in-app notice containing the offered person's demo name and expiry time, not an email. Real email delivery is a non-goal.
+- Demo clarification: a clearly labeled "Simulate one seat released" action supplies the release event. It cannot cancel a real order or refund anything.
+- Join the waitlist for a sold-out event with a nonblank demo name. Rejoining the same event with the same name (case-insensitive, trimmed) while waiting, offered, or claimed returns 409.
+- Serve waiting entries first-in, first-out. A released seat is held for the next waiting entry for exactly 30 minutes according to server time. The hold is unavailable to later entries.
+- At or after expiry, the prior entry cannot claim the seat; on the next server request the system offers it to the next waiting entry. Without another waiting entry it returns to available inventory.
+- A claim is a simulated reservation, not a payment. Only an offered, unexpired entry may claim; a repeated claim is refused.
+- Demo state is isolated per browser cookie. It is not verified identity or a shared production inventory system.

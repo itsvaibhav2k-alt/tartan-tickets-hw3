@@ -52,3 +52,11 @@ The supplied TEST_SPEC.md references REQ-1.1–REQ-8.5, whereas requirements.md 
 | SEC-22 | Not at all | No durable append-only admin-only audit store. |
 
 Tests are written before implementation. Original command output is retained separately as homework evidence. Do not use this prototype for real ticket sales.
+
+## Story 4: waitlist implementation
+
+Open One More Scene and choose Join waitlist. Add Alex Demo and then Blair Demo. Use Simulate one seat released. Alex receives an in-app notice and a server-timed 30-minute hold; Blair remains waiting. Claim simulated seat confirms Alex once. Refresh status checks expiry and passes an expired hold to the next waiting entry. Blank names and duplicate joins are refused server-side. No real email is sent.
+
+The queue is an isolated browser demo keyed by an opaque HttpOnly cookie. This is not identity verification: anyone using that browser can act for its demo entries. Multiple Vercel instances can lose or diverge on state. All tests of queue ordering and inventory apply to one server instance.
+
+Part B validation: 15 tests passed, including 8 new story tests and 3 request-handler tests, and the production build passed. See docs/HW3_TEST_PLAN.md for acceptance mapping. Stories 2, 3, 5 and 6 remain out of scope.
