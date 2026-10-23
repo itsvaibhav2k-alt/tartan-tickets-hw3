@@ -13,7 +13,7 @@ Built from the three official Canvas Starter A files in `docs/`.
 
 The app implements the homework scope: Story 1 browsing, Story 4's simulated waitlist, and SEC-23 validation. It is not the complete production ticketing system described in the original starter specifications.
 
-The initial version, waitlist version, and security fix were each published as a separate successful Vercel production deployment. Publishing used the Vercel CLI. The native Vercel/GitHub connection failed, so automatic deployment on future GitHub pushes is **not configured**. Connect this repository under the project's Settings → Git before claiming auto-deploy is complete.
+The initial version, waitlist version, and security fix were each published as a separate successful Vercel production deployment. Publishing used the Vercel CLI. On October 22, the GitHub repository was connected through Vercel Settings → Git. This documentation commit is the verification push for automatic deployment.
 
 ## Run
 
@@ -79,6 +79,6 @@ Part C validation: 18 tests pass. SEC-23 failed before the server fix and passed
 
 On October 22, 2026 (Eastern time), all 18 local tests and the production build passed again. Eight direct checks against the public production URL also passed: homepage/HTTPS headers, initial state, blank-name rejection, FIFO joins, duplicate rejection, release with a 30-minute hold, single claim with repeat rejection, and SEC-23 rejection without adding an entry. Details are in `docs/evidence/live-api-checks.json`.
 
-These live checks exercised HTTP endpoints, not a browser UI. Browser automation could not launch in this computer session. Desktop/mobile visual checks, click-through checks, and required screenshots remain unverified. The observed queue worked within one live session; serverless resets and separate instance state remain limitations.
+Chrome browser checks on October 22 confirmed blank-name rejection with no entry, FIFO offering Alex Demo a 30-minute hold while Blair Demo stayed waiting, and Alex remaining claimed after Refresh status. Screenshots were captured for the submission. The earlier HTTP checks are preserved separately; serverless resets and separate instance state remain limitations.
 
 The original failing/passing test output and builds are preserved in `docs/evidence/`. Follow `docs/HW3_SUBMISSION_CHECKLIST.md` to finish the personal and submission requirements. No classmate testing, gallery post, personal memo, or Canvas submission has been performed on the student's behalf.
