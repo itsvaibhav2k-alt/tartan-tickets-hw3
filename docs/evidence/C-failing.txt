@@ -1,0 +1,64 @@
+
+> tartan-tickets-hw3@1.0.0 test
+> node --test --test-reporter=spec tests/*.test.mjs
+
+✔ Story 4 API: a browser can join, receive an offer and claim; another browser has an isolated demo (14.844667ms)
+✔ Story 4 API: a direct blank-name request is refused with HTTP 400 (0.873584ms)
+✔ API: malformed JSON and a cross-origin write are refused (0.78525ms)
+✖ SEC-23: the server rejects a name longer than 80 characters without adding it to the waitlist (14.001708ms)
+✔ SEC-23: exactly 80 characters after trimming are accepted (0.600333ms)
+✖ SEC-23: the server counts Unicode code points and rejects 81 non-ASCII characters (0.595709ms)
+✔ Story 1: upcoming events include date, location, price and seats remaining (0.457667ms)
+✔ Story 1: sold-out events show Join waitlist instead of Buy (0.071208ms)
+✔ Story 1: events with available seats show Buy (0.630083ms)
+✔ Story 1: past and cancelled events are excluded, remaining events sorted by date (0.575292ms)
+✔ Story 4: releasing one seat notifies the first waiting name and holds it for exactly 30 minutes (1.157833ms)
+✔ Story 4: two released seats go to the first two waiting people without overselling (0.495584ms)
+✔ Story 4: no second person can claim someone else's held seat (0.362208ms)
+✔ Story 4: at exactly 30 minutes the hold expires and the next person is notified (0.17175ms)
+✔ Story 4: an unexpired offer can be claimed once only (0.112083ms)
+✔ Story 4: blank names and duplicate joins are rejected by the server (0.091917ms)
+✔ Story 4: an expired hold with no waiting person restores availability (0.585875ms)
+✔ Story 4: unknown events, unknown actions and joining a non-sold-out event are rejected (0.177542ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 16
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 73.905792
+
+✖ failing tests:
+
+test at tests/security.test.mjs:6:1
+✖ SEC-23: the server rejects a name longer than 80 characters without adding it to the waitlist (14.001708ms)
+  AssertionError [ERR_ASSERTION]: Overlong direct API requests must be rejected
+  
+  201 !== 400
+  
+      at TestContext.<anonymous> (file:///Users/vaibhav/Documents/Codex/2026-10-22/new-chat-2/tartan-tickets/tests/security.test.mjs:9:9)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 201,
+    expected: 400,
+    operator: 'strictEqual'
+  }
+
+test at tests/security.test.mjs:17:1
+✖ SEC-23: the server counts Unicode code points and rejects 81 non-ASCII characters (0.595709ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  201 !== 400
+  
+      at TestContext.<anonymous> (file:///Users/vaibhav/Documents/Codex/2026-10-22/new-chat-2/tartan-tickets/tests/security.test.mjs:18:34)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 201,
+    expected: 400,
+    operator: 'strictEqual'
+  }

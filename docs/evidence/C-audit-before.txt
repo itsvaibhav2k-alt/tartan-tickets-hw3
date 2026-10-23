@@ -1,0 +1,1 @@
+| SEC-23 | Not at all | The page limits the name field, but a direct API request can submit a name longer than 80 characters. The server has no name-length rule. |

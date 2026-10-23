@@ -1,0 +1,90 @@
+{
+  "url": "https://tartan-tickets-hw3.vercel.app",
+  "checkedAt": "2026-10-23T02:42:26.665241+00:00",
+  "method": "Direct HTTP requests to the live production site. Not browser UI checks, not student Part D manual testing. One observed server session; no claim of durable or cross-instance state.",
+  "results": [
+    {
+      "check": "Public homepage and HTTPS security headers",
+      "result": "PASS",
+      "details": {
+        "status": 200,
+        "hsts": "max-age=31536000",
+        "nosniff": "nosniff"
+      }
+    },
+    {
+      "check": "New demo initializes three events and an empty queue",
+      "result": "PASS",
+      "details": {
+        "status": 200,
+        "events": 3,
+        "entries": 0
+      }
+    },
+    {
+      "check": "Blank name rejected on live endpoint",
+      "result": "PASS",
+      "details": {
+        "status": 400,
+        "body": {
+          "error": "Enter a demo name."
+        }
+      }
+    },
+    {
+      "check": "Two names join in FIFO order",
+      "result": "PASS",
+      "details": {
+        "status": 201,
+        "names": [
+          "Alex Demo",
+          "Blair Demo"
+        ]
+      }
+    },
+    {
+      "check": "Duplicate normalized name rejected",
+      "result": "PASS",
+      "details": {
+        "status": 409,
+        "body": {
+          "error": "That name is already on this waitlist."
+        }
+      }
+    },
+    {
+      "check": "Release offers first person exactly a 30-minute hold",
+      "result": "PASS",
+      "details": {
+        "status": 200,
+        "statuses": [
+          "offered",
+          "waiting"
+        ],
+        "holdMilliseconds": 1800000
+      }
+    },
+    {
+      "check": "Claim succeeds once and rejects repeat claim",
+      "result": "PASS",
+      "details": {
+        "firstClaim": 200,
+        "repeatClaim": 409,
+        "body": {
+          "error": "No active offer for this entry."
+        }
+      }
+    },
+    {
+      "check": "SEC-23 rejects 81 characters without adding a queue entry",
+      "result": "PASS",
+      "details": {
+        "invalidStatus": 400,
+        "body": {
+          "error": "Demo names must be 80 characters or fewer."
+        },
+        "queueCountAfter": 2
+      }
+    }
+  ]
+}

@@ -4,6 +4,17 @@ Vaibhav Maddhi · CMU 70-445 AI for Business Leaders · Fall 2026.
 
 Built from the three official Canvas Starter A files in `docs/`.
 
+## Published app
+
+- App: https://tartan-tickets-hw3.vercel.app
+- Public source: https://github.com/itsvaibhav2k-alt/tartan-tickets-hw3
+- Edit with VS Code in the browser: https://github.dev/itsvaibhav2k-alt/tartan-tickets-hw3
+- Local VS Code workspace: open `tartan-tickets.code-workspace`.
+
+The app implements the homework scope: Story 1 browsing, Story 4's simulated waitlist, and SEC-23 validation. It is not the complete production ticketing system described in the original starter specifications.
+
+The initial version, waitlist version, and security fix were each published as a separate successful Vercel production deployment. Publishing used the Vercel CLI. The native Vercel/GitHub connection failed, so automatic deployment on future GitHub pushes is **not configured**. Connect this repository under the project's Settings → Git before claiming auto-deploy is complete.
+
 ## Run
 
 Node.js 22 or newer. Run `npm install`, `npm test`, `npm run build`, and `npm run dev`. Open http://localhost:3000.
@@ -30,7 +41,7 @@ The supplied TEST_SPEC.md references REQ-1.1–REQ-8.5, whereas requirements.md 
 |---|---|---|
 | SEC-1 | Not at all | No CMU SSO; prototype only. |
 | SEC-2 | Not at all | No authenticated sessions or expiry. |
-| SEC-3 | Partly | Local development uses HTTP; verify hosted HTTPS and HSTS after deployment. |
+| SEC-3 | Partly | The public homepage returns HTTPS and HSTS, confirmed by a live request. This does not establish the entire production security requirement; local development uses HTTP and real authenticated sessions are absent. |
 | SEC-4 | Not at all | No verified roles or club membership. |
 | SEC-5 | Not at all | No protected club resources or denied-access audit. |
 | SEC-6 | Not at all | No ticket ownership or private ticket route. |
@@ -63,3 +74,11 @@ The queue is an isolated browser demo keyed by an opaque HttpOnly cookie. This i
 Part B validation: 15 tests passed, including 8 new story tests and 3 request-handler tests, and the production build passed. See docs/HW3_TEST_PLAN.md for acceptance mapping. Stories 2, 3, 5 and 6 remain out of scope.
 
 Part C validation: 18 tests pass. SEC-23 failed before the server fix and passed afterward. The exact 80-character boundary passed in both versions. Production build passed. Browser/live deployment checks remain separate from these automated results.
+
+## Verification and submission evidence
+
+On October 22, 2026 (Eastern time), all 18 local tests and the production build passed again. Eight direct checks against the public production URL also passed: homepage/HTTPS headers, initial state, blank-name rejection, FIFO joins, duplicate rejection, release with a 30-minute hold, single claim with repeat rejection, and SEC-23 rejection without adding an entry. Details are in `docs/evidence/live-api-checks.json`.
+
+These live checks exercised HTTP endpoints, not a browser UI. Browser automation could not launch in this computer session. Desktop/mobile visual checks, click-through checks, and required screenshots remain unverified. The observed queue worked within one live session; serverless resets and separate instance state remain limitations.
+
+The original failing/passing test output and builds are preserved in `docs/evidence/`. Follow `docs/HW3_SUBMISSION_CHECKLIST.md` to finish the personal and submission requirements. No classmate testing, gallery post, personal memo, or Canvas submission has been performed on the student's behalf.

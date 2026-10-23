@@ -1,0 +1,23 @@
+commit 561eb2ea3f58ba37b8677510b9632923e91c8781
+Author:     Vaibhav Maddhi <itsvaibhav2k@gmail.com>
+AuthorDate: Thu Oct 22 17:06:51 2026 -0400
+Commit:     Vaibhav Maddhi <itsvaibhav2k@gmail.com>
+CommitDate: Thu Oct 22 17:06:51 2026 -0400
+
+    Build Story 1: browse campus events with tests
+
+ .gitignore              |   8 +
+ README.md               |  54 +++
+ app/api/events/route.js |   3 +
+ app/event-browser.js    |  31 ++
+ app/globals.css         |   3 +
+ app/layout.js           |   5 +
+ app/page.js             |   4 +
+ docs/SECURITY_SPEC.md   |  43 +++
+ docs/TEST_SPEC.md       |  65 ++++
+ docs/requirements.md    |  94 +++++
+ lib/events.mjs          |  14 +
+ package-lock.json       | 955 ++++++++++++++++++++++++++++++++++++++++++++++++
+ package.json            |  18 +
+ tests/story1.test.mjs   |  27 ++
+ 14 files changed, 1324 insertions(+)

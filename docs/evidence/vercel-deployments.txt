@@ -1,0 +1,12 @@
+Vercel CLI 48.2.9
+Fetching deployments in vaibhav-maddhis-projects
+> Deployments for vaibhav-maddhis-projects/tartan-tickets-hw3 [180ms]
+
+  Age     Deployment                                                                   Status      Environment     Duration     Username              
+  4m      https://tartan-tickets-hw3-cs5znsawp-vaibhav-maddhis-projects.vercel.app     ● Ready     Production      23s          itsvaibhav2k-9626     
+  5m      https://tartan-tickets-hw3-lokfg7p9e-vaibhav-maddhis-projects.vercel.app     ● Ready     Production      25s          itsvaibhav2k-9626     
+  7m      https://tartan-tickets-hw3-eguv31jki-vaibhav-maddhis-projects.vercel.app     ● Ready     Production      29s          itsvaibhav2k-9626     
+
+https://tartan-tickets-hw3-cs5znsawp-vaibhav-maddhis-projects.vercel.app
+https://tartan-tickets-hw3-lokfg7p9e-vaibhav-maddhis-projects.vercel.app
+https://tartan-tickets-hw3-eguv31jki-vaibhav-maddhis-projects.vercel.app

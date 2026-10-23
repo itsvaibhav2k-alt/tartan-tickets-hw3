@@ -1,0 +1,1 @@
+| SEC-23 | Fully | The server rejects trimmed names above 80 Unicode code points with HTTP 400 before insertion; direct-request tests cover 81, the 80-character boundary, Unicode, and unchanged queue state. Verified identity, shared storage, and rate limiting remain unmet under other audit rows. |

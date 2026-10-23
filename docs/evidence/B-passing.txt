@@ -1,0 +1,27 @@
+
+> tartan-tickets-hw3@1.0.0 test
+> node --test --test-reporter=spec tests/*.test.mjs
+
+✔ Story 4 API: a browser can join, receive an offer and claim; another browser has an isolated demo (19.768375ms)
+✔ Story 4 API: a direct blank-name request is refused with HTTP 400 (0.846625ms)
+✔ API: malformed JSON and a cross-origin write are refused (0.373833ms)
+✔ Story 1: upcoming events include date, location, price and seats remaining (0.746834ms)
+✔ Story 1: sold-out events show Join waitlist instead of Buy (0.07275ms)
+✔ Story 1: events with available seats show Buy (0.504208ms)
+✔ Story 1: past and cancelled events are excluded, remaining events sorted by date (0.770458ms)
+✔ Story 4: releasing one seat notifies the first waiting name and holds it for exactly 30 minutes (1.105625ms)
+✔ Story 4: two released seats go to the first two waiting people without overselling (0.468167ms)
+✔ Story 4: no second person can claim someone else's held seat (0.337917ms)
+✔ Story 4: at exactly 30 minutes the hold expires and the next person is notified (0.156042ms)
+✔ Story 4: an unexpired offer can be claimed once only (0.104292ms)
+✔ Story 4: blank names and duplicate joins are rejected by the server (0.082542ms)
+✔ Story 4: an expired hold with no waiting person restores availability (0.061625ms)
+✔ Story 4: unknown events, unknown actions and joining a non-sold-out event are rejected (0.578542ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 72.406209
